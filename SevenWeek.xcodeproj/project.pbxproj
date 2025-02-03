@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4D3AB5982D50698800329279 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3AB5972D50698800329279 /* SnapKit */; };
+		4D3AB5F62D508F9C00329279 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3AB5F52D508F9C00329279 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4D427E212D504C4F0032F1A2 /* SevenWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SevenWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3AB5982D50698800329279 /* SnapKit in Frameworks */,
+				4D3AB5F62D508F9C00329279 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = SevenWeek;
 			packageProductDependencies = (
+				4D3AB5972D50698800329279 /* SnapKit */,
+				4D3AB5F52D508F9C00329279 /* Alamofire */,
 			);
 			productName = SevenWeek;
 			productReference = 4D427E212D504C4F0032F1A2 /* SevenWeek.app */;
@@ -107,6 +116,10 @@
 			);
 			mainGroup = 4D427E182D504C4E0032F1A2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4D3AB5962D50698800329279 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4D3AB5F42D508F9C00329279 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4D427E222D504C4F0032F1A2 /* Products */;
 			projectDirPath = "";
@@ -148,9 +161,10 @@
 				DEVELOPMENT_TEAM = Z388Z4UCTV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SevenWeek/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 권한을 허용해주세요. 위치를 허용해야 날씨 정보를 줄 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -176,9 +190,10 @@
 				DEVELOPMENT_TEAM = Z388Z4UCTV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SevenWeek/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 권한을 허용해주세요. 위치를 허용해야 날씨 정보를 줄 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -335,6 +350,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D3AB5962D50698800329279 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		4D3AB5F42D508F9C00329279 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D3AB5972D50698800329279 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D3AB5962D50698800329279 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		4D3AB5F52D508F9C00329279 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D3AB5F42D508F9C00329279 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D427E192D504C4E0032F1A2 /* Project object */;
 }
