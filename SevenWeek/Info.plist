@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>갤러리 접근</string>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라 촬영</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>현재 위치 권한을 허용해주세요. 위치를 허용해야 날씨 정보를 줄 수 있습니다.
+</string>
 	<key>CFBundleIdentifier</key>
 	<string></string>
 	<key>UIApplicationSceneManifest</key>

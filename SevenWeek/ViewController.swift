@@ -22,14 +22,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
        
         
-        NetworkManager.shared.getLotto3 { response in
-            switch response {
-            case .success(let success):
-                <#code#>
-            case .failure(let failure):
-                <#code#>
-            }
-        }
+//        NetworkManager.shared.getLotto3 { response in
+//            switch response {
+//            case .success(let success):
+//                <#code#>
+//            case .failure(let failure):
+//                <#code#>
+//            }
+//        }
 //        NetworkManager.shared.getLotto2 { lotto, error in
 //            
 //            // 1. 얼리 엑싯 됨  성공하는 케이스 없음
@@ -120,8 +120,6 @@ class ViewController: UIViewController {
             
             locationManager.requestWhenInUseAuthorization() // 얘만 불러도 축소버전인 한번만 허용 뜨게 되어있음
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            
-            
         case .denied: // 거부
             print("설정으로 이동하는 얼럿 띄우기")
             
@@ -190,3 +188,16 @@ extension ViewController: CLLocationManagerDelegate {
         print(#function)
     }
 }
+/*
+ 
+ switch status {
+    case .notDetermined:
+        locationManager.requestWhenInUseAuthorization()
+    case .denied:
+        //여기가 거부
+    case .authorizedWhenInUse:
+        locationManager.startUpdatingLocation()
+    default:
+        presentWarningAlert()
+    }
+ */
