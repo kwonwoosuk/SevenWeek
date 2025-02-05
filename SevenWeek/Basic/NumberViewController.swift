@@ -26,9 +26,14 @@ class Field<T> {
     init(_ value: T) {
         self.value = value
     }
-    
+    // bind에 작성한 구문이 바로 동작하게끔 하고 싶은 경우
     func bind(closure: @escaping (T) -> Void) {
-        closure(value) // -> didSet으로 인식해서 closure?(name)가 실행되는게 아니라 bind에서 name을 입력받은뒤  bind에 정의한 클로저가 실행되는것
+        closure(value) // -> didSet으로 인식해서 closure?(name)가 실행되는게 아니라 bind에서 name을 입력받은뒤  bind에 정의한 클로저가 실행되는것 이 구문이 없으면 처음에 Bind가 실행되지 않는다
+        self.closure = closure
+    }
+    
+    func lazybind(closure: @escaping (T) -> Void) {
+        // init 안함
         self.closure = closure
     }
 }
@@ -37,9 +42,7 @@ class Field<T> {
 
 class NumberViewController: UIViewController {
 
-    
-    
-    
+
     private let amountTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "금액 입력"
@@ -62,9 +65,14 @@ class NumberViewController: UIViewController {
         configureConstraints()
         configureActions()
         // bind 바뀌면 어쩔거야가 bind -> didSet을 생각
+        
         viewModel.outputText.bind { text in
             print("outputText:", text)
             self.formattedAmountLabel.text = text
+        }
+        
+        viewModel.outputTextColor.bind { color in
+            self.formattedAmountLabel.textColor = color ? .blue : .red
         }
     }
     // 근데 이걸 ui그리기 바쁜 내가 해야겐냐?
