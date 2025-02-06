@@ -13,7 +13,8 @@ final class BoxOfficeViewController: UIViewController {
     private lazy var dateTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "날짜 선택"
-        textField.borderStyle = .roundedRect 
+        textField.borderStyle = .roundedRect
+        textField.inputView = datePicker
         return textField
     }()
     
@@ -48,15 +49,22 @@ final class BoxOfficeViewController: UIViewController {
         configureView()
         configureConstraints()
         bindData()
+        
     }
     
     
+    
+    
     private func bindData() {
- 
+        viewModel.outputSelectedDate.bind { text in
+            self.dateTextField.text = text
+            self.navigationItem.title = text
+        }
     }
     
     @objc private func datePickerValueChanged() {
         print(datePicker.date)
+        viewModel.inputSelectedDate.value = datePicker.date
     }
     
     @objc private func searchButtonTapped() {

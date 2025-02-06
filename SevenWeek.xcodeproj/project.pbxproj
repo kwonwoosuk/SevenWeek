@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		4D3AB5982D50698800329279 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3AB5972D50698800329279 /* SnapKit */; };
 		4D3AB5F62D508F9C00329279 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3AB5F52D508F9C00329279 /* Alamofire */; };
+		4D871AC82D54791100E9AF5A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D871AC72D54791100E9AF5A /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D427E212D504C4F0032F1A2 /* SevenWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SevenWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D871AC72D54791100E9AF5A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,6 +54,7 @@
 		4D427E182D504C4E0032F1A2 = {
 			isa = PBXGroup;
 			children = (
+				4D871AC72D54791100E9AF5A /* .gitignore */,
 				4D427E232D504C4F0032F1A2 /* SevenWeek */,
 				4D427E222D504C4F0032F1A2 /* Products */,
 			);
@@ -135,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D871AC82D54791100E9AF5A /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
