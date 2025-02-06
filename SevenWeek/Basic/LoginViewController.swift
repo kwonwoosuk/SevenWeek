@@ -4,15 +4,14 @@
 //
 //  Created by Jack on 2/5/25.
 //
- 
+
 import UIKit
 import SnapKit
 
 class LoginViewController: UIViewController {
- 
+    
     private let idTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "아이디"
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
         return textField
@@ -27,7 +26,7 @@ class LoginViewController: UIViewController {
     private let validationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .red
-//        label.text = "유효성 레이블"
+        //        label.text = "유효성 레이블"
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         return label
@@ -40,7 +39,7 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 5
         return button
     }()
-      
+    
     
     let viewModel = LoginViewModel()
     
@@ -52,22 +51,22 @@ class LoginViewController: UIViewController {
         }
         
         viewModel.outputValidButton.bind { value in
-            self.loginButton.isEnabled = value // == true || False  
+            self.loginButton.isEnabled = value // == true || False
         }
         
         configureUI()
         configureConstraints()
         configureActions()
     }
-
-
+    
+    
     @objc private func loginButtonTapped() {
         print(#function)
         
         
         
     }
-
+    
     @objc private func textFieldDidChange() {
         print(#function)
         // 데이터 가공해 ! 전달 ~
@@ -87,35 +86,35 @@ extension LoginViewController {
         view.addSubview(validationLabel)
         view.addSubview(loginButton)
     }
-
+    
     private func configureConstraints() {
         idTextField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
-
+        
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(idTextField.snp.bottom).offset(20)
             make.left.right.height.equalTo(idTextField)
         }
-
+        
         validationLabel.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(10)
             make.left.right.equalTo(idTextField)
         }
-
+        
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(validationLabel.snp.bottom).offset(30)
             make.left.right.equalTo(idTextField)
             make.height.equalTo(50)
         }
     }
-
+    
     private func configureActions() {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
+    
 }

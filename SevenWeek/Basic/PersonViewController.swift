@@ -15,7 +15,7 @@ struct Person {
 
 class PersonListViewController: UIViewController {
     // MARK: - Properties
-//    private var people: [Person] = []
+    //    private var people: [Person] = []
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -109,10 +109,10 @@ class PersonListViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func loadButtonTapped() {
-//        let newPeople = generateRandomPeople(count: 10)
-//        viewModel.people.value.append(contentsOf: newPeople)
-////        people.append(contentsOf: newPeople)
-//        tableView.reloadData()
+        //        let newPeople = generateRandomPeople(count: 10)
+        //        viewModel.people.value.append(contentsOf: newPeople)
+        ////        people.append(contentsOf: newPeople)
+        //        tableView.reloadData()
         // 버튼을 클릭헀다는 사실만 뷰모델에 전해주기.
         viewModel.inputLoadButtonTapped.value = (())
     }

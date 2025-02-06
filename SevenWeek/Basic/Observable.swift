@@ -8,9 +8,11 @@
 import Foundation
 
 
+
+
 class Observable<T> {
     
-    var closure: ((T) -> Void)?
+    private var closure: ((T) -> Void)?
     
     var value: T {
         didSet {
@@ -21,7 +23,7 @@ class Observable<T> {
     init(_ value: T) {
         self.value = value
     }
-     
+    
     func bind(closure: @escaping (T) -> Void) {
         closure(value)
         self.closure = closure

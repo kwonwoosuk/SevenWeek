@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 class BasicPHPickerViewController: UIViewController {
-
+    
     let pickerButton = UIButton ()
     let photoImageView = UIImageView()
     
@@ -16,7 +16,7 @@ class BasicPHPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureView()
     }
     func configureView() {
@@ -53,8 +53,8 @@ class BasicPHPickerViewController: UIViewController {
         present(picker, animated: true)
     }
     
-
-
+    
+    
 }
 
 extension BasicPHPickerViewController: PHPickerViewControllerDelegate {

@@ -9,11 +9,12 @@ import Foundation
 
 class PersonViewModel {
     //
+    var people: Observable<[Person]> = Observable([])
     var inputLoadButtonTapped: Observable<Void> = Observable(())
-    
+    var resetBUttonTapped = Observable(())
     
     // 테이블뷰에 보여줄 데이터
-    var people: Observable<[Person]> = Observable([])
+    
     
     init() {
         inputLoadButtonTapped.bind { _ in

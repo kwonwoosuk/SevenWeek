@@ -20,34 +20,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-       
         
-//        NetworkManager.shared.getLotto3 { response in
-//            switch response {
-//            case .success(let success):
-//                <#code#>
-//            case .failure(let failure):
-//                <#code#>
-//            }
-//        }
-//        NetworkManager.shared.getLotto2 { lotto, error in
-//            
-//            // 1. 얼리 엑싯 됨  성공하는 케이스 없음
-//            guard let lotto = lotto
-//                    , let error = error else {
-//                return
-//            }
-//            
-//            // 2. 문제로또
-//            // 로또 존재 에러 닐 -> 문제 안됨
-//            // 로도 닐 에러 존재 -> 에러 실행 안됨 앱 터짐
-//            guard let lotto = lotto else {
-//                return
-//            }
-//            guard let error = error else {
-//                return
-//            }
-//        }
+        
+        //        NetworkManager.shared.getLotto3 { response in
+        //            switch response {
+        //            case .success(let success):
+        //                <#code#>
+        //            case .failure(let failure):
+        //                <#code#>
+        //            }
+        //        }
+        //        NetworkManager.shared.getLotto2 { lotto, error in
+        //
+        //            // 1. 얼리 엑싯 됨  성공하는 케이스 없음
+        //            guard let lotto = lotto
+        //                    , let error = error else {
+        //                return
+        //            }
+        //
+        //            // 2. 문제로또
+        //            // 로또 존재 에러 닐 -> 문제 안됨
+        //            // 로도 닐 에러 존재 -> 에러 실행 안됨 앱 터짐
+        //            guard let lotto = lotto else {
+        //                return
+        //            }
+        //            guard let error = error else {
+        //                return
+        //            }
+        //        }
         
         
         
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     private func locationButtonClicked() {
         checkDeivceLocation()
         // 현재 위치를 가져오는 단순한 기능이여도 그사이에 권한을 바꿨을 수 있다  - > 모든 예외사항 처리
-        // 가급적 새로 요청할때 권한을 갖고 있는지 확인하는게 좋을 수 있다 
+        // 가급적 새로 요청할때 권한을 갖고 있는지 확인하는게 좋을 수 있다
     }
     
     
@@ -154,7 +154,7 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(#function)
         print(locations) // 전체출력 - 결과가 배열이다
-//        print(locations.last?.coordinate) // coordinate == 좌표
+        //        print(locations.last?.coordinate) // coordinate == 좌표
         // 위도 , 경도
         // 날씨 정보를 호출 하는 API
         // 지도를 현재위치 중심으로 이동시키는 기능
@@ -191,13 +191,13 @@ extension ViewController: CLLocationManagerDelegate {
 /*
  
  switch status {
-    case .notDetermined:
-        locationManager.requestWhenInUseAuthorization()
-    case .denied:
-        //여기가 거부
-    case .authorizedWhenInUse:
-        locationManager.startUpdatingLocation()
-    default:
-        presentWarningAlert()
-    }
+ case .notDetermined:
+ lo    cationManager.requestWhenInUseAuthorization()
+ case .denied:
+ //여기가 거부
+ case .authorizedWhenInUse:
+ locationManager.startUpdatingLocation()
+ default:
+ presentWarningAlert()
+ }
  */

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class ImagePickerViewController: UIViewController {
-
+    
     let pickerButton = UIButton ()
     let photoImageView = UIImageView()
     
@@ -19,7 +19,7 @@ class ImagePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureView()
     }
     
@@ -49,10 +49,10 @@ class ImagePickerViewController: UIViewController {
     func pickerButtonClicked() {
         print(#function)
         let imagePicker = UIImagePickerController()
-         imagePicker.delegate = self
+        imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
-//        imagePicker.sourceType = .camera 실기기 빌드해보기
+        //        imagePicker.sourceType = .camera 실기기 빌드해보기
         
         //UIFontPickerViewController()
         
@@ -60,7 +60,7 @@ class ImagePickerViewController: UIViewController {
     }
     
     
-
+    
 }
 
 extension ImagePickerViewController: UIImagePickerControllerDelegate , UINavigationControllerDelegate {

@@ -41,8 +41,8 @@ class Field<T> {
 
 
 class NumberViewController: UIViewController {
-
-
+    
+    
     private let amountTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "금액 입력"
@@ -55,7 +55,7 @@ class NumberViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
-       
+    
     let viewModel = NumberViewModel()
     
     override func viewDidLoad() {
@@ -64,7 +64,7 @@ class NumberViewController: UIViewController {
         configureUI()
         configureConstraints()
         configureActions()
-        // bind 바뀌면 어쩔거야가 bind -> didSet을 생각
+        //바뀌면 어쩔거야가 bind -> didSet을 생각
         
         viewModel.outputText.bind { text in
             print("outputText:", text)
@@ -93,22 +93,22 @@ extension NumberViewController {
         view.addSubview(amountTextField)
         view.addSubview(formattedAmountLabel)
     }
-
+    
     private func configureConstraints() {
         amountTextField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
-
+        
         formattedAmountLabel.snp.makeConstraints { make in
             make.top.equalTo(amountTextField.snp.bottom).offset(20)
             make.left.right.equalTo(amountTextField)
         }
     }
-
+    
     private func configureActions() {
         amountTextField.addTarget(self, action: #selector(amountChanged), for: .editingChanged)
     }
-
+    
 }
