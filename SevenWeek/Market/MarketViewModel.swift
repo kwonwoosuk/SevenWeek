@@ -41,7 +41,6 @@ final class MarketViewModel {
         AF.request(url).responseDecodable(of: [Market].self) { response in
             switch response.result {
             case .success(let success):
-                dump(success)
                 self.outputMarket.value = success
                 self.outputTitle.value = success.randomElement()?.korean_name
             case .failure(let failure):

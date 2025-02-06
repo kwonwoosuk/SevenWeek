@@ -39,11 +39,11 @@ final class BoxOfficeViewController: UIViewController {
     }()
     
     private let viewModel = BoxOfficeViewModel()
-     
+    
     deinit {
         print("BoxOfficeViewController Deinit")
     }
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -60,6 +60,15 @@ final class BoxOfficeViewController: UIViewController {
             self.dateTextField.text = text
             self.navigationItem.title = text
         }
+        
+        viewModel.outputBoxOffice.bind { movie in
+            self.tableView.reloadData()
+        }
+        
+        
+        
+        
+        
     }
     
     @objc private func datePickerValueChanged() {
@@ -69,22 +78,23 @@ final class BoxOfficeViewController: UIViewController {
     
     @objc private func searchButtonTapped() {
         print(#function)
+        viewModel.inputSearchButtonTapped.value = ()
     }
 }
 
 extension BoxOfficeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.outputBoxOffice.count
+        return viewModel.outputBoxOffice.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        let data = viewModel.outputBoxOffice[indexPath.row]
+        let data = viewModel.outputBoxOffice.value[indexPath.row]
         cell.textLabel?.text = "\(data.rank). \(data.movieNm) (관객수: \(data.audiCnt))"
         return cell
     }
 }
- 
+
 extension BoxOfficeViewController {
     
     private func configureView() {

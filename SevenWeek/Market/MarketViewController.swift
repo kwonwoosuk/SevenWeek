@@ -33,7 +33,7 @@ final class MarketViewController: UIViewController {
     }
     // VM에서 VC로 바인딩해줄 데이터 뷰모델에서 받아와서 뷰에 실시간 업데이트.
     private func bindData() {
-        //vc viewdidload시점에 viewmodel에게 무언가 해달라고 하고싶다
+//        vc viewdidload시점에 viewmodel에게 무언가 해달라고 하고싶다
         viewModel.inputViewDidLoadTrigger.value = () // 빈튜플 -> 전달할 수 있는 데이터중 가장 작은 단위?
         viewModel.outputMarket.lazybind { _ in
             print("outputMarket bind")
@@ -43,7 +43,7 @@ final class MarketViewController: UIViewController {
         viewModel.outputTitle.lazybind { text in
             self.navigationItem.title = text
         }
-        // 바꿔바..?
+//         바꿔바..?
         viewModel.outputCellSelected.bind { data in
             print(data) //Optional(()) nil아닌데?
             guard let data else {
@@ -56,7 +56,9 @@ final class MarketViewController: UIViewController {
             let vc = MarketDetailViewController()
             vc.viewModel.outputOneMarket.value = data.korean_name
             self.navigationController?.pushViewController(vc, animated: true)
+//            self.navigationController?.pushViewController(EmptyViewController(), animated: true)
         }
+       
         
 
     
