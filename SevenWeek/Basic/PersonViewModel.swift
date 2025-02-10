@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PersonViewModel {
+class PersonViewModel: BaseViewModel { 
     
     private(set) var input: Input
     private(set) var output: Output
@@ -37,7 +37,7 @@ class PersonViewModel {
         transform()
     }
     
-    private func transform() {
+    func transform() {
         input.loadButtonTapped.bind { _ in
             let newPeople =  self.generateRandomPeople()
             self.output.people.value.append(contentsOf: newPeople)

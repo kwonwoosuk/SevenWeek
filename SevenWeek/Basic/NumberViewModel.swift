@@ -16,12 +16,9 @@ import Foundation
  
  // MVC에서 MVVM으로 왜 넘어갔냐? (질문) -> 뷰컨의 비대성을 해결하기 위해 도입을헀다 보통 대답 -> 컨트롤러가 비대해지는 것을 뷰모델이 나눠갖는다고 하면 뷰모델도 비대해진는거 아닌가요? ->
  많아지는 코드들을 명확성을 갖게 하기위해 input output 나눠 보는것
- 
- 
- 
- 
  */
-class NumberViewModel {
+
+class NumberViewModel: BaseViewModel {
     // VC가 VM의 input.output 프로퍼티만 알고있는 상황
     private(set) var input: Input //🔴
     private(set) var output: Output //🔵
@@ -57,7 +54,7 @@ class NumberViewModel {
         
     }
     
-    private func transform() {
+    func transform() {
         input.field.bind { text in
             //            print("inputField:", text)
             self.validation()
