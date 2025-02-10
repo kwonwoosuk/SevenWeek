@@ -66,12 +66,12 @@ class NumberViewController: UIViewController {
         configureActions()
         //바뀌면 어쩔거야가 bind -> didSet을 생각
         
-        viewModel.outputText.bind { text in
+        viewModel.output.text.bind { text in
             print("outputText:", text)
             self.formattedAmountLabel.text = text
         }
         
-        viewModel.outputTextColor.bind { color in
+        viewModel.output.textColor.bind { color in
             self.formattedAmountLabel.textColor = color ? .blue : .red
         }
     }
@@ -82,7 +82,7 @@ class NumberViewController: UIViewController {
         // 문자를 기입했을 경우 -> 숫자를 입력해주세요
         // 숫자의 범위가 너무 크거나 작은경우 - 범위 설정 100만원 이하의 값을 작성해주세요
         // 올바른 값 -> 콤마단위로 표현  1,234,567
-        viewModel.inputField.value = amountTextField.text
+        viewModel.input.field.value = amountTextField.text
     }
 }
 

@@ -14,7 +14,7 @@ class MarketDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        configureView() 
         viewModel.outputOneMarket.bind { [weak self] market in
             print("outputOntMarket bind")
             self?.navigationItem.title = market

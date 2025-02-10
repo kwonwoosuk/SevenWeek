@@ -60,17 +60,13 @@ class PersonListViewController: UIViewController {
         setupConstraints()
         setupTableView()
         setupActions()
-        viewModel.people.bind { value in
+        viewModel.output.people.bind { value in
             self.tableView.reloadData()
         }
-        
         
         navigationItem.title = viewModel.navigationTitle
         loadButton.setTitle(viewModel.loadTitle, for: .normal)
         resetButton.setTitle(viewModel.resetTitle, for: .normal)
-        
-        
-        
         
     }
     
@@ -114,26 +110,26 @@ class PersonListViewController: UIViewController {
         ////        people.append(contentsOf: newPeople)
         //        tableView.reloadData()
         // 버튼을 클릭헀다는 사실만 뷰모델에 전해주기.
-        viewModel.inputLoadButtonTapped.value = ()
+        viewModel.input.loadButtonTapped.value = ()
     }
     
     @objc private func resetButtonTapped() {
-        viewModel.people.value.removeAll()
-        tableView.reloadData()
+        viewModel.input.resetBUttonTapped.value = ()
+        
     }
     
-    // MARK: - Helpers
+    
     
 }
 
 extension PersonListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.people.value.count
+        return viewModel.output.people.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
-        let person = viewModel.people.value[indexPath.row]
+        let person = viewModel.output.people.value[indexPath.row]
         cell.textLabel?.text = "\(person.name), \(person.age)세"
         return cell
     }

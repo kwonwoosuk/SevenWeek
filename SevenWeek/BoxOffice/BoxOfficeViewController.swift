@@ -49,11 +49,7 @@ final class BoxOfficeViewController: UIViewController {
         configureView()
         configureConstraints()
         bindData()
-        
     }
-    
-    
-    
     
     private func bindData() {
         viewModel.outputSelectedDate.bind { text in
@@ -64,11 +60,6 @@ final class BoxOfficeViewController: UIViewController {
         viewModel.outputBoxOffice.bind { movie in
             self.tableView.reloadData()
         }
-        
-        
-        
-        
-        
     }
     
     @objc private func datePickerValueChanged() {

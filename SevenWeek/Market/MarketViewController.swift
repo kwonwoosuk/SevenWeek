@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+//final class FavoriteButton: UIButton {
+//    init(title: String) {
+//        
+//    }
+//}
 final class MarketViewController: UIViewController {
     
     private lazy var tableView: UITableView = {

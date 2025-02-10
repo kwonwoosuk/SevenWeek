@@ -8,20 +8,44 @@
 import Foundation
 
 class PersonViewModel {
-    //
-    var people: Observable<[Person]> = Observable([])
-    var inputLoadButtonTapped: Observable<Void> = Observable(())
-    var resetBUttonTapped = Observable(())
+    
+    private(set) var input: Input
+    private(set) var output: Output
+    
+    struct Input {
+        let loadButtonTapped = Observable(())
+        let resetBUttonTapped = Observable(())
+    }
+    
+    struct Output {
+        var people: Observable<[Person]> = Observable([])
+    }
     
     // 테이블뷰에 보여줄 데이터
-    
-    
     init() {
-        inputLoadButtonTapped.bind { _ in
-            let newPeople =  self.generateRandomPeople()
-            self.people.value.append(contentsOf: newPeople)
+        input = Input()
+        output = Output()
+        
+        input.loadButtonTapped.bind { _ in
+            self.load()
         }
+        
+        input.resetBUttonTapped.bind { _ in
+            self.reset()
+        }
+        
+        transform()
     }
+    
+    private func transform() {
+        input.loadButtonTapped.bind { _ in
+            let newPeople =  self.generateRandomPeople()
+            self.output.people.value.append(contentsOf: newPeople)
+        }
+        
+        
+    }
+    
     
     let navigationTitle = "Person List"
     let resetTitle = "리셋버튼"
@@ -37,4 +61,21 @@ class PersonViewModel {
         ]
     }
     
+    private func load() {
+        output.people.value = [
+            Person(name: "James", age: Int.random(in: 20...70)),
+            Person(name: "Mary", age: Int.random(in: 20...70)),
+            Person(name: "John", age: Int.random(in: 20...70)),
+            Person(name: "Patricia", age: Int.random(in: 20...70)),
+            Person(name: "Robert", age: Int.random(in: 20...70))
+        ]
+    }
+    
+    private func reset() {
+        output.people.value.removeAll()
+        
+    }
+    
 }
+
+
