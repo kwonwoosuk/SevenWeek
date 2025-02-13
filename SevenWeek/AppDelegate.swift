@@ -13,7 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Notification 1. 알림 권한 설정 -> 2. 요청
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in //  허용했을때 아닐때 어떻게 할건지 정하는곳 (컴플리션 핸들러)
+            print(success, error)
+        }
+        
+        // 사용자의 권한 상태를 체크해서 대응하는 것도 필요할 수 있음 (필요한 경우)
+        
+        
         return true
     }
     
