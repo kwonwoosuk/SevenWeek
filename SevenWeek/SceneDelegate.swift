@@ -30,9 +30,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
     
+    
+    // - 다시 앱을 실행 헀을때 뱃지를 제거 하고 싶다면 이 시점을 활용할 수있다 정도 ! 여기서 해야한다!가 아니다.⭐️
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        //Badge 제거
+//        UIApplication.shared.applicationIconBadgeNumber = 0 deprecated됨
+        UNUserNotificationCenter.current().setBadgeCount(0)
+        // 사용자에게 전달되어 있는  알람제거 (default로는 알람을 클릭해서 열어주어야 그 알람만 제거됨!)
+        
+//        UNUserNotificationCenter.current().removeAllDeliveredNotifications() // 이미 사용자에게 전달되어 플로팅된 알람을 제거를 해야겠다 !
+        // pending 대기중 / 보류
+        // 미리 알림같은 예정된 알림 같은것을 지울때 사용할 수 있겠다 
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests() // 모든 팬딩이 되는 요청을 지우겠다 -> 사용자에게 아직 전달되지 않았지만 앞으로 전달될 알람을 제거
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
